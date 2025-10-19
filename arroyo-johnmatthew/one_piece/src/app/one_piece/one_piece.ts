@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormGroup, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, ReactiveFormsModule, FormBuilder, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-one',
@@ -47,19 +47,19 @@ export class OnePiece {
     }
   }
     
-  get nameControl() {
+  get nameControl(): AbstractControl {
     return this.onePieceForm.get('name')!;
   }
 
-  get ageControl() {
+  get ageControl(): AbstractControl {
     return this.onePieceForm.get('age')!;
   }
 
-  get positionControl() {
+  get positionControl(): AbstractControl {
     return this.onePieceForm.get('position')!;
   }
 
-  get powerControl() {
+  get powerControl(): FormGroup {
     return this.onePieceForm.get('power') as FormGroup;
   }
 }
