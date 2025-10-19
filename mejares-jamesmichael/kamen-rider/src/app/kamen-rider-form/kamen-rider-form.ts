@@ -19,7 +19,7 @@ export type KamenRider = {
   id: number;
   name: string;
   series: string;
-  transformation: string;
+  henshin: string;
   isProtagonist: boolean;
   era: KamenRiderEra;
 };
@@ -53,7 +53,7 @@ export class KamenRiderFormComponent {
           validators: [Validators.required, this.noWhitespaceValidator],
         },
       ],
-      transformation: [
+      henshin: [
         '',
         {
           validators: [Validators.required, this.noWhitespaceValidator],
@@ -76,7 +76,7 @@ export class KamenRiderFormComponent {
         id: Date.now(),
         name: this.riderForm.value.name,
         series: this.riderForm.value.series,
-        transformation: this.riderForm.value.transformation,
+        henshin: this.riderForm.value.henshin,
         isProtagonist: this.riderForm.value.isProtagonist,
         era: this.riderForm.value.era,
       };
@@ -90,7 +90,7 @@ export class KamenRiderFormComponent {
     this.riderForm.reset({
       name: '',
       series: '',
-      transformation: '',
+      henshin: '',
       isProtagonist: false,
       era: KamenRiderEra.HEISEI,
     });

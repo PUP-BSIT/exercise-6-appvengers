@@ -30,17 +30,12 @@
       }
     </div>
 
-    <!-- Field 3: Transformation Device (Text) -->
+    <!-- Field 3: Henshin Belt (Text) -->
     <div class="form-group">
-      <label for="transformation">Transformation Device:</label>
-      <input
-        type="text"
-        id="transformation"
-        formControlName="transformation"
-        placeholder="e.g., Gotchadriver"
-      />
-      @if (riderForm.get('transformation')?.invalid && riderForm.get('transformation')?.touched) {
-      <span class="error-message">Transformation device is required</span>
+      <label for="henshin">Henshin Belt:</label>
+      <input type="text" id="henshin" formControlName="henshin" placeholder="e.g., Gotchadriver" />
+      @if (riderForm.get('henshin')?.invalid && riderForm.get('henshin')?.touched) {
+      <span class="error-message">Henshin Belt is required</span>
       }
     </div>
 
