@@ -1,0 +1,37 @@
+:host {
+  .app-container {
+    min-height: 100vh;
+    background-color: lightslategray;
+    padding: 20px;
+
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+      padding: 20px;
+      opacity: 0.8;
+    }
+  }
+}
