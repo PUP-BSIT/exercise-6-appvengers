@@ -1,0 +1,82 @@
+<div class="entry-list">
+  <h2>Crew Registry</h2>
+  <ul>
+    @for(entry of entries(); track entry.name) {
+      <li class="entry-card">
+        <strong>{{ entry.name }} ||</strong> 
+        <strong>{{ entry.age }} ||</strong>
+        <span class="position">{{ entry.position }}</span>
+        <div class="powers">
+          Powers:
+          @if(entry.power.devilFruit) { <span>Devil Fruit</span> }
+          @if(entry.power.swordStyle) { <span>Sword Style</span> }
+          @if(entry.power.fightingStyle) { <span>Fighting Style</span> }
+          @if(entry.power.dayToDaySkill) { <span>Day-to-Day Skill</span> }
+        </div>
+        <div class="catchphrase">Catchphrase: "{{ entry.catchphrase }}"</div>
+      </li>
+    }
+  </ul>
+</div>
+
+<div class="form-container">
+  <form [formGroup]="onePieceForm">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" 
+      placeholder="e.g. Luffy" 
+    />
+
+    <label for="age">Age:</label>
+    <input id="age" formControlName="age" type="number" min="1" 
+      placeholder="e.g. 20"
+    />
+
+    <fieldset [formGroup]="powerControl">
+      <legend>Power:</legend>
+      <label>
+        <input type="checkbox" formControlName="devilFruit" /> 
+          Devil Fruit
+      </label>
+      <label>
+        <input type="checkbox" formControlName="swordStyle" />  
+          Sword Style
+      </label>
+      <label>
+        <input type="checkbox" formControlName="fightingStyle" />  
+          Fighting Style
+      </label>
+      <label>
+        <input type="checkbox" formControlName="dayToDaySkill" /> 
+          Day-to-Day Skill
+      </label>
+    </fieldset>
+
+    <label for="position">Position:</label>
+    <select id="position" formControlName="position">
+      <option value="">--Select Position--</option>
+      <option value="Civilian">Civilian</option>
+      <option value="Pirate">Pirate</option>
+      <option value="Marine">Marine</option>
+      <option value="Revolutionary Army">Revolutionary Army</option>
+      <option value="Celestial Dragon">Celestial Dragon</option>
+    </select>
+
+    <label for="catchphrase">Catchphrase:</label>
+    <input id="catchphrase" formControlName="catchphrase" type="text" 
+      placeholder="e.g. I'm gonna be King of the Pirates!" 
+    />
+
+    @if(nameControl.touched && nameControl.errors?.['required']) {
+      <span class="error">Name is required</span>
+    }
+    @if(ageControl.touched && ageControl.errors?.['required']) {
+      <span class="error">Age is required</span>
+    }
+    @if(positionControl.touched && positionControl.errors?.['required']) {
+      <span class="error">Position is required</span>
+    }
+
+    <button type="button" (click)="handleAdd()">ADD</button>
+  </form>
+</div>
+

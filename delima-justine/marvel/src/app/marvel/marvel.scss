@@ -1,0 +1,123 @@
+.title-mb {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.form-container-external {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container-internal {
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 60px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+form input, select, button {
+  padding: 5px;
+}
+
+form button {
+  border: none;
+  border-radius: 5px;
+  background-color: #0d6efd; 
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0d59cb;
+  transition: background-color 0.5s;
+}
+
+form button:disabled {
+  background-color: grey;
+  cursor: default;
+  transition: background-color 0.5s;
+}
+
+.first-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.second-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.field-format {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+  margin: 30px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.card {
+  border: 1px solid;
+  padding: 10px;
+  width: 300px;
+  background-color: white;
+}
+
+.header {
+  border: 1px solid;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.body {
+  border: 1px solid;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer {
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.warn-red {
+  background-color: #ffb09c;
+  color: #182424;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.warn-yellow {
+  background-color: #ffcc00;
+  color: #182424;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+}
