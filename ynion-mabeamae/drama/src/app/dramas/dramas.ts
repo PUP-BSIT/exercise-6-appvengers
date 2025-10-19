@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { 
   FormsModule,
   ReactiveFormsModule,
@@ -24,29 +24,24 @@ export class Dramas {
   formBuilder = inject(FormBuilder);
   dramaForm: FormGroup;
   dramas: Drama[] = [];
-  showFormError = false;
+  showFormError = signal(false);
 
   constructor() {
     this.dramaForm = this.formBuilder.group({
       title: ['', {
-        validators: [Validators.required, Validators.maxLength(100)],
-        updateOn: 'change'
+        validators: [Validators.required]
       }],
       actor: ['', {
-        validators: [Validators.required, Validators.maxLength(50)],
-        updateOn: 'change'
+        validators: [Validators.required]
       }],
       genre: ['', {
-        validators: [Validators.required, Validators.maxLength(30)],
-        updateOn: 'change'
+        validators: [Validators.required]
       }],
       director: ['', {
-        validators: [Validators.required, Validators.maxLength(50)],
-        updateOn: 'change'
+        validators: [Validators.required]
       }],
       ostTitle: ['', {
-        validators: [Validators.required, Validators.maxLength(100)],
-        updateOn: 'change'
+        validators: [Validators.required]
       }]
     });
   }
@@ -56,12 +51,12 @@ export class Dramas {
       this.dramas.push({...this.dramaForm.value});
       this.resetForm();
     } else {
-      this.showFormError = true;
+      this.showFormError.set(true);
     }
   }
 
   resetForm() {
     this.dramaForm.reset();
-    this.showFormError = false;
+    this.showFormError.set(false);
   }
 }
