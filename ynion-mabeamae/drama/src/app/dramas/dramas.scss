@@ -1,0 +1,145 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5px;
+  padding: 5px;
+  color: rgb(78, 12, 12);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.drama-form {
+  background: rgb(180, 182, 244);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form-input {
+  width: 96%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  color: #333;
+
+  &::placeholder {
+    color: #6c757d;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &.error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+  }
+}
+
+ul:empty::before {
+  content: "No dramas added yet. Start by adding your first drama!";
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-style: italic;
+  background: rgb(101, 146, 241);
+  margin-bottom: 1rem;
+  padding: 1.6rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.error-message {
+  color: #c94754;
+  font-size: 14px;
+  margin-top: 6px;
+  padding-left: 4px;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+
+  &::before {
+    font-size: 12px;
+  }
+}
+
+.submit-btn {
+  width: 101%;
+  padding: 14px 20px;
+  background: #aa5bd1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    background: #bb60e9;
+  }
+}
+
+.drama-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drama-item {
+  background: rgb(101, 146, 241);
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.drama-content {
+  color: #333;
+  line-height: 1.6;
+
+  strong {
+    color: #030305;
+    font-weight: 600;
+  }
+}
+
