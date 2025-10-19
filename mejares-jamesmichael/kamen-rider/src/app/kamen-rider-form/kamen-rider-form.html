@@ -1,0 +1,69 @@
+<div class="form-container">
+  <h2>KAMEN RIDER</h2>
+
+  <form [formGroup]="riderForm" (ngSubmit)="onSubmit()">
+    <!-- Field 1: Rider Name (Text) -->
+    <div class="form-group">
+      <label for="name">Rider Name:</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="e.g., Kamen Rider Gotchard"
+      />
+      @if (riderForm.get('name')?.invalid && riderForm.get('name')?.touched) {
+      <span class="error-message">Rider name is required</span>
+      }
+    </div>
+
+    <!-- Field 2: Series Name (Text) -->
+    <div class="form-group">
+      <label for="series">Series Name:</label>
+      <input
+        type="text"
+        id="series"
+        formControlName="series"
+        placeholder="e.g., Kamen Rider Gotchard"
+      />
+      @if (riderForm.get('series')?.invalid && riderForm.get('series')?.touched) {
+      <span class="error-message">Series name is required</span>
+      }
+    </div>
+
+    <!-- Field 3: Transformation Device (Text) -->
+    <div class="form-group">
+      <label for="transformation">Transformation Device:</label>
+      <input
+        type="text"
+        id="transformation"
+        formControlName="transformation"
+        placeholder="e.g., Gotchadriver"
+      />
+      @if (riderForm.get('transformation')?.invalid && riderForm.get('transformation')?.touched) {
+      <span class="error-message">Transformation device is required</span>
+      }
+    </div>
+
+    <!-- Field 4: Is Protagonist (Checkbox) -->
+    <div class="form-group checkbox-group">
+      <span>Click if Rider is Main Protagonist</span>
+      <label>
+        <input type="checkbox" formControlName="isProtagonist" />
+        Main Protagonist
+      </label>
+    </div>
+
+    <!-- Field 5: Era (Selection) -->
+    <div class="form-group">
+      <label for="era">Era:</label>
+      <select id="era" formControlName="era">
+        @for (era of eraOptions; track era) {
+        <option [value]="era">{{ era }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- ADD Button -->
+    <button type="submit" class="add-button" [disabled]="riderForm.invalid">ADD KAMEN RIDER</button>
+  </form>
+</div>
