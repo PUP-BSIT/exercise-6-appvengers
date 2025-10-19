@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, output } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -32,44 +32,30 @@ export type KamenRider = {
   styleUrls: ['./kamen-rider-form.scss'],
 })
 export class KamenRiderFormComponent {
-  // Properties at the top
-  @Output() riderAdded = new EventEmitter<KamenRider>();
+  riderAdded = output<KamenRider>();
 
   riderForm: FormGroup;
   eraOptions = Object.values(KamenRiderEra);
 
-  // Constructor with FormBuilder
   constructor(private formBuilder: FormBuilder) {
     this.riderForm = this.formBuilder.group({
-      name: [
-        '',
-        {
+      name: ['', {
           validators: [Validators.required, this.noWhitespaceValidator],
-        },
-      ],
-      series: [
-        '',
-        {
+        },],
+      series: ['', {
           validators: [Validators.required, this.noWhitespaceValidator],
-        },
-      ],
-      henshin: [
-        '',
-        {
+        },],
+      henshin: ['', {
           validators: [Validators.required, this.noWhitespaceValidator],
-        },
-      ],
+        },],
       isProtagonist: [false],
       era: [
-        KamenRiderEra.HEISEI,
-        {
+        KamenRiderEra.HEISEI, {
           validators: [Validators.required],
-        },
-      ],
+        },],
     });
   }
 
-  // Methods at the bottom
   onSubmit(): void {
     if (this.riderForm.valid) {
       const newRider: KamenRider = {
@@ -96,7 +82,6 @@ export class KamenRiderFormComponent {
     });
   }
 
-  // Validator - returns null or error object
   noWhitespaceValidator(control: AbstractControl): ValidationErrors | null {
     const isWhitespace = (control.value || '').trim().length === 0;
     return isWhitespace ? { whitespace: 'Field cannot be empty or whitespace' } 
