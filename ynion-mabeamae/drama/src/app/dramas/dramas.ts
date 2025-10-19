@@ -6,7 +6,7 @@ import {
   FormBuilder,
   FormGroup } from '@angular/forms';
 
-interface Drama {
+type Drama = {
   title: string;
   actor: string;
   genre: string;
@@ -28,17 +28,32 @@ export class Dramas {
 
   constructor() {
     this.dramaForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      actor: ['', [Validators.required, Validators.maxLength(50)]],
-      genre: ['', [Validators.required, Validators.maxLength(30)]],
-      director: ['', [Validators.required, Validators.maxLength(50)]],
-      ostTitle: ['', [Validators.required, Validators.maxLength(100)]]
+      title: ['', {
+        validators: [Validators.required, Validators.maxLength(100)],
+        updateOn: 'change'
+      }],
+      actor: ['', {
+        validators: [Validators.required, Validators.maxLength(50)],
+        updateOn: 'change'
+      }],
+      genre: ['', {
+        validators: [Validators.required, Validators.maxLength(30)],
+        updateOn: 'change'
+      }],
+      director: ['', {
+        validators: [Validators.required, Validators.maxLength(50)],
+        updateOn: 'change'
+      }],
+      ostTitle: ['', {
+        validators: [Validators.required, Validators.maxLength(100)],
+        updateOn: 'change'
+      }]
     });
   }
 
   addDrama() {
     if (this.dramaForm.valid) {
-      this.dramas.push({ ...this.dramaForm.value });
+      this.dramas.push({...this.dramaForm.value});
       this.resetForm();
     } else {
       this.showFormError = true;
