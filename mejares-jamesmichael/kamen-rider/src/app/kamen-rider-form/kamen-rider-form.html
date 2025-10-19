@@ -12,7 +12,7 @@
         placeholder="e.g., Kamen Rider Gotchard"
       />
       @if (riderForm.get('name')?.invalid && riderForm.get('name')?.touched) {
-      <span class="error-message">Rider name is required</span>
+        <span class="error-message">Rider name is required</span>
       }
     </div>
 
@@ -26,16 +26,17 @@
         placeholder="e.g., Kamen Rider Gotchard"
       />
       @if (riderForm.get('series')?.invalid && riderForm.get('series')?.touched) {
-      <span class="error-message">Series name is required</span>
+        <span class="error-message">Series name is required</span>
       }
     </div>
 
     <!-- Field 3: Henshin Belt (Text) -->
     <div class="form-group">
       <label for="henshin">Henshin Belt:</label>
-      <input type="text" id="henshin" formControlName="henshin" placeholder="e.g., Gotchadriver" />
+      <input type="text" id="henshin" formControlName="henshin" 
+        placeholder="e.g., Gotchadriver" />
       @if (riderForm.get('henshin')?.invalid && riderForm.get('henshin')?.touched) {
-      <span class="error-message">Henshin Belt is required</span>
+        <span class="error-message">Henshin Belt is required</span>
       }
     </div>
 
@@ -53,12 +54,13 @@
       <label for="era">Era:</label>
       <select id="era" formControlName="era">
         @for (era of eraOptions; track era) {
-        <option [value]="era">{{ era }}</option>
+          <option [value]="era">{{ era }}</option>
         }
       </select>
     </div>
 
     <!-- ADD Button -->
-    <button type="submit" class="add-button" [disabled]="riderForm.invalid">ADD KAMEN RIDER</button>
+    <button type="submit" class="add-button" [disabled]="riderForm.invalid">ADD 
+      KAMEN RIDER</button>
   </form>
 </div>

@@ -2,31 +2,33 @@
   <h2>Kamen Raida List</h2>
 
   @if (riders.length === 0) {
-  <div class="empty-state">
-    <p>No Kamen Riders added yet. Add your first rider above!</p>
-  </div>
-  } @if (riders.length > 0) {
+    <div class="empty-state">
+      <p>No Kamen Riders added yet. Add your first rider above!</p>
+    </div>
+  } 
+  @if (riders.length > 0) {
   <div class="rider-grid">
     @for (rider of riders; track rider.id) {
-    <div class="rider-card">
-      <div class="rider-header">
-        <h3>{{ rider.name }}</h3>
-        <span class="era-badge" [class]="rider.era.toLowerCase()"> {{ rider.era }} </span>
-      </div>
+      <div class="rider-card">
+        <div class="rider-header">
+          <h3>{{ rider.name }}</h3>
+          <span class="era-badge" [class]="rider.era.toLowerCase()"> 
+            {{ rider.era }} </span>
+        </div>
 
-      <div class="rider-details">
-        <p><strong>Series:</strong> {{ rider.series }}</p>
-        <p><strong>Henshin Belt:</strong> {{ rider.henshin }}</p>
-        <p>
-          <strong>Role:</strong>
-          @if (rider.isProtagonist) {
-          <span class="protagonist"> Main Protagonist</span>
-          } @else {
-          <span> Secondary Rider</span>
-          }
-        </p>
+        <div class="rider-details">
+          <p><strong>Series:</strong> {{ rider.series }}</p>
+          <p><strong>Henshin Belt:</strong> {{ rider.henshin }}</p>
+          <p>
+            <strong>Role:</strong>
+            @if (rider.isProtagonist) {
+            <span class="protagonist"> Main Protagonist</span>
+            } @else {
+            <span> Secondary Rider</span>
+            }
+          </p>
+        </div>
       </div>
-    </div>
     }
   </div>
 

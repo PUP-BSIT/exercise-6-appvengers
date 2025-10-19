@@ -99,6 +99,7 @@ export class KamenRiderFormComponent {
   // Validator - returns null or error object
   noWhitespaceValidator(control: AbstractControl): ValidationErrors | null {
     const isWhitespace = (control.value || '').trim().length === 0;
-    return isWhitespace ? { whitespace: 'Field cannot be empty or whitespace' } : null;
+    return isWhitespace ? { whitespace: 'Field cannot be empty or whitespace' } 
+      : null;
   }
 }
