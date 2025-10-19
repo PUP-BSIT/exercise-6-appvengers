@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, output } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -32,7 +32,7 @@ export type KamenRider = {
   styleUrls: ['./kamen-rider-form.scss'],
 })
 export class KamenRiderFormComponent {
-  @Output() riderAdded = new EventEmitter<KamenRider>();
+  riderAdded = output<KamenRider>();
 
   riderForm: FormGroup;
   eraOptions = Object.values(KamenRiderEra);
