@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: 1. Checkout Repo
@@ -20,25 +22,21 @@ jobs:
 
     - name: 3. Build Angular Projects
       run: |
-        # Build arroyo-johnmatthew/one_piece
         cd arroyo-johnmatthew/one_piece
         npm install
         npm run build -- --base-href /exercise-6-appvengers/one_piece/ --configuration production
         cd ../..
         
-        # Build delima-justine/marvel
         cd delima-justine/marvel
         npm install
         npm run build -- --base-href /exercise-6-appvengers/marvel/ --configuration production
         cd ../..
         
-        # Build mejares-jamesmichael/kamen-rider
         cd mejares-jamesmichael/kamen-rider
         npm install
         npm run build -- --base-href /exercise-6-appvengers/kamen-rider/ --configuration production
         cd ../..
         
-        # Build ynion-mabeamae/drama
         cd ynion-mabeamae/drama
         npm install
         npm run build -- --base-href /exercise-6-appvengers/drama/ --configuration production
@@ -47,14 +45,10 @@ jobs:
     - name: 4. Prepare Deploy Directory
       run: |
         mkdir deploy
-        
-        # Copy build outputs (Angular 17+ uses dist/[project-name]/browser/)
         cp -r arroyo-johnmatthew/one_piece/dist/one_piece/browser/ deploy/one_piece
         cp -r delima-justine/marvel/dist/marvel/browser/ deploy/marvel
         cp -r mejares-jamesmichael/kamen-rider/dist/kamen-rider/browser/ deploy/kamen-rider
         cp -r ynion-mabeamae/drama/dist/drama/browser/ deploy/drama
-        
-        # Create index.html
         echo '<html><head><title>Project Hub</title></head><body><h1>Our Angular Projects</h1><ul><li><a href="one_piece">One Piece</a></li><li><a href="marvel">Marvel</a></li><li><a href="kamen-rider">Kamen Rider</a></li><li><a href="drama">Drama</a></li></ul></body></html>' > deploy/index.html
 
     - name: 5. Deploy to GitHub Pages
