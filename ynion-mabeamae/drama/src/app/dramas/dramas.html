@@ -1,0 +1,114 @@
+<div class="container">
+  <form [formGroup]="dramaForm" (ngSubmit)="addDrama()" class="drama-form">
+
+    <div class="header">
+      <h1>Drama using Angular</h1>
+    </div>
+
+    <!-- Title Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="Drama Title"
+        class="form-input"/>
+      
+        @if(dramaForm.get('title')?.errors?.['required'] &&
+              dramaForm.get('title')?.touched) {
+          <span class="error-message">
+            Title is required.
+          </span>
+        }
+    </div>
+
+    <!-- Actor Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="actor"
+        placeholder="Actor"
+        class="form-input"/>
+
+        @if(dramaForm.get('actor')?.errors?.['required'] &&
+              dramaForm.get('actor')?.touched) {
+          <span class="error-message">
+            Actor is required.
+          </span>
+        }
+    </div>
+
+    <!-- Genre Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="genre"
+        placeholder="Genre"
+        class="form-input"/>
+
+        @if(dramaForm.get('genre')?.errors?.['required'] &&
+              dramaForm.get('genre')?.touched) {
+          <span class="error-message">
+            Genre is required.
+          </span>
+        }
+    </div>
+
+    <!-- Director Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="director"
+        placeholder="Director"
+        class="form-input"/>
+        
+        @if(dramaForm.get('director')?.errors?.['required'] &&
+              dramaForm.get('director')?.touched) {
+          <span class="error-message">
+            Director is required.
+          </span>
+        }
+    </div>
+
+    <!-- OST Title Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="ostTitle"
+        placeholder="OST Title"
+        class="form-input"/>
+        
+        @if(dramaForm.get('ostTitle')?.errors?.['required'] &&
+              dramaForm.get('ostTitle')?.touched) {
+          <span class="error-message">
+            OST Title is required.
+          </span>
+        }
+    </div>
+
+    @if(showFormError && dramaForm.invalid) {
+      <div class="error-message">
+        Please fill out all required fields.
+      </div>
+    }
+
+    <button 
+      type="submit" 
+      class="submit-btn">
+        ADD
+    </button>
+  </form>
+
+  <ul class="drama-list">
+    @for (drama of dramas; track drama.title; let i = $index) {
+      <li class="drama-item">
+        <div class="drama-content">
+          <strong>Drama Title:</strong> {{ drama.title }} |
+          <strong>Actor:</strong> {{ drama.actor }} |
+          <strong>Genre:</strong> {{ drama.genre }} |
+          <strong>Director:</strong> {{ drama.director }} |
+          <strong>OST Title:</strong> {{ drama.ostTitle || '—' }}
+        </div>
+      </li>
+    }
+  </ul>
+</div>
