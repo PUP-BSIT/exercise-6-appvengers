@@ -10,10 +10,7 @@ import { KamenRider } from '../kamen-rider-form/kamen-rider-form';
   styleUrls: ['./kamen-rider-list.scss'],
 })
 export class KamenRiderListComponent {
-  // Properties at the top
   @Input() riders: KamenRider[] = [];
-
-  // Methods at the bottom
   getRiderCount(): number {
     return this.riders.length;
   }
