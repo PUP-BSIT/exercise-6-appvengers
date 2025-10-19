@@ -1,0 +1,95 @@
+<div class="form-container-external">
+  <div class="form-container-internal">
+    <h2 class="title-mb">MarvelDex</h2>
+
+    <form [formGroup]="characterForm">
+      <div class="first-row">
+        <div class="field-format">
+          <label>Name</label>
+          <input formControlName="name" type="text" placeholder="Name" 
+            (input)="checkFields()"/>
+        </div>
+
+        <div class="field-format">
+          <label>Age</label>
+          <input formControlName="age" type="number" placeholder="Age" 
+            (input)="checkFields()"/>
+        </div>
+
+        <div class="field-format">
+          <label>Power</label>
+          <input formControlName="power" type="text" placeholder="Power" 
+            (input)="checkFields()"/>
+        </div>
+      </div>
+
+      <div class="second-row">
+        <div class="field-format">
+          <label>Team</label>
+          <select formControlName="team" (onchange)="checkFields()">
+            <option value="" disabled>-- Select Team --</option>
+            <option value="Asgardian">Asgardian</option>
+            <option value="Avengers">Avengers</option>
+            <option value="Guardians of the Galaxy">GOTG</option>
+            <option value="S.H.I.E.L.D">S.H.I.E.L.D</option>
+            <option value="Thunderbolts*">Thunderbolts*</option>
+            <option value="Villain">Villains</option>
+            <option value="X-Men">X-Men</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+
+        <div class="field-format">
+          <label>Quote</label>
+          <input formControlName="quote" type="text" 
+            placeholder="Quote" (input)="checkFields()">
+        </div>
+      </div>
+
+      @if(characterForm.touched) {
+        @if(!characterForm.valid) {
+          <span class="warn-red">Please fill all fields.</span>
+        }
+      }
+    
+      <button 
+        type="button" 
+        [disabled]="isFormValid()" 
+        (click)="addCharacter()">
+          Add
+      </button>
+    </form>
+  </div>
+</div>
+
+<div>
+  <h2 class="title">Characters</h2>
+
+  @if(!characters().length) {
+    <div class="warn-yellow">
+      No characters yet. Try to input a marvel character! 😎
+    </div>
+  }
+
+  <ul>
+    @for(character of characters(); track $index) {
+      <li class="card">
+        <div class="header">
+          <h3>{{ character.name }}</h3>
+        </div>
+
+        <div class="body">
+          <p>
+            {{ character.age }}, 
+            {{ character.power }}, 
+            {{ character.team }} 
+          </p>
+        </div>
+        
+        <div class="footer">
+          <p>"{{ character.quote }}"</p>
+        </div>
+      </li>
+    }
+  </ul>
+</div>
