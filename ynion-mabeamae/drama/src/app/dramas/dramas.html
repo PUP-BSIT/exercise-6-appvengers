@@ -85,10 +85,10 @@
         }
     </div>
 
-    @if(showFormError && dramaForm.invalid) {
-      <div class="error-message">
+    @if(showFormError() && dramaForm.invalid) {
+      <span class="error-message">
         Please fill out all required fields.
-      </div>
+      </span>
     }
 
     <button 
