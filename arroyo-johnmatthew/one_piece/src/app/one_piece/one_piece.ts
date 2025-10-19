@@ -1,12 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FormGroup, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-one',
   imports: [ReactiveFormsModule],
-  templateUrl: './one.html',
-  styleUrl: './one.scss'
+  templateUrl: './one_piece.html',
+  styleUrl: './one_piece.scss'
 })
 
 export class OnePiece {
