@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { OnePiece } from "./one_piece/one";
+import { OnePiece } from "./one_piece/one_piece";
 
 @Component({
   selector: 'app-root',
